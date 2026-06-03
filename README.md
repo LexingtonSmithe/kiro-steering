@@ -17,6 +17,9 @@ This suite was built iteratively through real-world use:
 3. **Removed noise** — assignment status was initially flagged as a risk. Learned that pre-dev tickets are intentionally unassigned in most workflows. Added a global rule to ignore it.
 4. **Tightened the false positive test** — the core question became: "Could someone unfamiliar with this ticket act on it without asking a single clarifying question?" If the answer is no, it's not a pass.
 5. **Genericised for publication** — removed all company-specific references (internal tool names, team names, org-specific suppressions) without impacting analysis quality.
+6. **Added implied rules and adjacent feature detection** — the skill now probes for what's unwritten (state preconditions, boundary rejection, concurrent actors) and checks for companion features that logically must exist (inverse operations, lifecycle companions, recovery flows).
+7. **Added specification vs expectation** — checks whether the AC deliver what the user story promises. A broad user story paired with narrow AC gets flagged as an expectation gap.
+8. **Shifted from analysis to conversation** — the full suite is thorough but heavy. Teams found it more useful as reference material than as a live workflow tool. Phase 8 introduced the Spark: a ~30-line output designed to galvanise discussion rather than do the team's thinking for them. The Spark runs at two checkpoints (post-PO write-up and post-refinement) and surfaces only decisions and gaps — no scoring, no explanations, no suggested rewrites. The team reasons independently; the tool catches what they might have missed. This preserves the team's ownership of their process while providing a systematic safety net.
 
 ## Skills
 
@@ -33,7 +36,8 @@ This suite was built iteratively through real-world use:
 | Documentation | `ticket-analysis-documentation.md` | Doc links and quality of referenced docs |
 | Bugs | `ticket-analysis-bugs.md` | Dedicated bug assessment framework |
 | Spikes | `ticket-analysis-spikes.md` | Time-box, output, scope, success criteria |
-| Pre-Refinement | `ticket-analysis-prerefinement.md` | Questions and focus areas before refinement |
+| Spark | `ticket-analysis-spark.md` | Lightweight checkpoint — run post-write-up and post-refinement to galvanise discussion |
+| Sprint Retro | `sprint-analysis-retro.md` | Sprint-level quality patterns with sprint-over-sprint comparison |
 | Propose Corrections | `ticket-propose-corrections.md` | Safe corrections from existing content (propose only) |
 | Formatting | `ticket-analysis-formatting.md` | Structural consistency and field placement |
 
