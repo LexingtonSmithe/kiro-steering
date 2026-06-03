@@ -20,7 +20,8 @@ This is the orchestration guide for the ticket analysis skill suite.
 | Documentation | `#ticket-analysis-documentation` | Checks for doc links and assesses quality of linked docs |
 | Bugs | `#ticket-analysis-bugs` | Dedicated bug assessment (repro, impact, expected/actual, evidence) |
 | Spikes | `#ticket-analysis-spikes` | Validates time-box, output definition, scope, success criteria |
-| Pre-Refinement | `#ticket-analysis-prerefinement` | Surfaces questions, gaps, and focus areas before a refinement session |
+| Spark | `#ticket-analysis-spark` | Lightweight checkpoint — run after PO write-up (ready for refinement?) and after refinement (ready for dev?). Same output, two stages |
+| Sprint Retro | `#sprint-analysis-retro` | Analyses all tickets in a sprint for quality patterns — what did we do well, consistently get wrong, occasionally miss |
 | Propose Corrections | `#ticket-propose-corrections` | Generates safe corrections from existing ticket content — propose only, never auto-apply |
 | Formatting | `#ticket-analysis-formatting` | Checks structural consistency — AC numbering, field placement, duplication, readability |
 
