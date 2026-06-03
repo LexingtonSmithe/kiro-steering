@@ -114,6 +114,19 @@ Don't split on technical boundaries (FE/BE, different endpoints). Split on produ
 
 When recommending a split, describe each proposed ticket in terms of: who the user is, what value it delivers, and why it's independently meaningful.
 
+### Should this ticket be promoted to Epic?
+
+If a split produces **multiple independently-deliverable Stories** (not sub-tasks), the original ticket is no longer a Story — it's a container. Recommend promotion to Epic when:
+
+- The proposed split yields 3+ child Stories (not sub-tasks or technical slices)
+- Each child serves a distinct user goal or delivers standalone value
+- The children could reasonably ship in different sprints
+- The original ticket's description reads more like an initiative scope than a single increment
+
+**How to frame it**: "This ticket describes multiple independently-valuable features (pixel events, CAPI integration, admin config, consent). Recommend promoting to Epic and creating child Stories for each. The current description becomes the Epic's scope definition."
+
+Don't recommend Epic promotion for tickets that split into 2 closely-related parts or into sub-tasks of a single deliverable. Reserve it for work that is genuinely multi-sprint, multi-Story scope.
+
 ## Output
 
 ```
