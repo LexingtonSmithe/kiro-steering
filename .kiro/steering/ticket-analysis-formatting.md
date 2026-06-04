@@ -72,7 +72,7 @@ Check that content lives where it belongs:
 | Test notes / QA considerations | QA/Test Notes field | Description, comments |
 | Dev approach / technical notes | Dev Notes or description "Implementation" section | Comments, AC field |
 
-**Flag** when content is in the wrong place. **Do not move it** without approval.
+**Flag** when content is in the wrong place. **Do not move it** without approval. To generate move proposals for misplaced content, use `#ticket-analysis-propose-corrections` after this review.
 
 ### Duplication
 

@@ -24,6 +24,8 @@ You are reviewing whether the ticket addresses what happens when this work goes 
 
 ### Monitoring & Alerting
 
+(Note: This skill checks whether *operational tooling is configured* — dashboards linked, alerts set, smoke tests defined. Quality Attributes checks whether *observability is architecturally possible* — log points exist, traces are structured, debugging is feasible.)
+
 - Are relevant monitoring dashboards **linked** (not just named)?
 - Will new alerts or health checks be needed for this feature?
 - Does this introduce behaviour that would be unmonitored if no action is taken?

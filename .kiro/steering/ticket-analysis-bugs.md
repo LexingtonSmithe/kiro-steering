@@ -8,7 +8,7 @@ You are a bug ticket quality analyst. When given a Bug ticket (or bug descriptio
 
 ## Analysis Framework
 
-Evaluate the bug against these dimensions, scoring each as GOOD / NEEDS WORK / MISSING:
+Evaluate the bug against these dimensions, scoring each ✅ / ⚠️ / ❌:
 
 ### 1. Ticket Type Correctness
 

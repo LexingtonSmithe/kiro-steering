@@ -45,7 +45,7 @@ Different ticket types use different fields to explain why the work matters.
 
 - Does every criterion have a clear pass/fail condition?
 - Could someone verify each criterion without asking clarifying questions?
-- Is the language specific enough to test but not so presriptive it dictates implementation?
+- Is the language specific enough to test but not so prescriptive it dictates implementation?
 - Do any criteria conflict with each other?
 - Do the AC imply a sequence that isn't stated? If order matters, it should be explicit.
 
@@ -65,7 +65,7 @@ The AC may be well-written for what they cover but still leave critical behaviou
 |------|----------------|
 | **State preconditions** | What states can the entity be in BEFORE this action? Does each valid starting state have coverage? |
 | **Boundary rejection** | Every "when X, do Y" implies "when NOT X, reject." Are invalid states/inputs addressed? |
-| **Concurrent actors** | Could another user or process modify the same entity simultaneously? |
+| **Concurrent actors** | Could another user or process modify the same entity simultaneously? (Note: Implementation & Test checks whether the *proposed approach* handles this. This skill checks whether the *AC specify* the expected behaviour.) |
 | **Downstream effects** | Does the action trigger side effects not mentioned? (Notifications, recalculations, status changes on related entities) |
 | **Partial success** | If the operation has multiple steps, what happens if step 2 fails after step 1 succeeded? |
 | **Repeat/replay** | What if the same action is triggered twice? Is it idempotent? Does it duplicate? |

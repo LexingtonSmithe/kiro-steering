@@ -20,8 +20,8 @@ You are reviewing whether the proposed development approach and test plan (provi
 - Are database changes documented? (table, column, migration)
 - Are external integrations identified? (APIs, message queues, shared data sources)
 - Is backward compatibility addressed? (Will existing data/records still work?)
-- **Concurrency**: What if two users/processes do this simultaneously? Is that considered?
-- **State transitions**: Does the proposal account for all valid states the entity can be in? Are invalid transitions prevented?
+- **Concurrency**: What if two users/processes do this simultaneously? Is that considered? (Note: Content Quality checks whether AC *specify* concurrency handling. This skill checks whether the *proposed implementation* handles it.)
+- **State transitions**: Does the proposal account for all valid states the entity can be in? Are invalid transitions prevented? (Note: Content Quality checks whether AC *cover* state preconditions. This skill checks whether the *proposed approach* accounts for them.)
 - **Notification fatigue**: If the implementation sends communications, is volume/throttling considered?
 
 ### Domain Language

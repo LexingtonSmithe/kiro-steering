@@ -4,7 +4,7 @@ inclusion: manual
 
 # Ticket Analysis Suite — Index
 
-This is the orchestration guide for the ticket analysis skill suite.
+This is the orchestration guide for the ticket analysis skill suite. Activate with `#ticket-analysis-suite-index`.
 
 ## Available Skills
 
@@ -22,7 +22,7 @@ This is the orchestration guide for the ticket analysis skill suite.
 | Spikes | `#ticket-analysis-spikes` | Validates time-box, output definition, scope, success criteria |
 | Spark | `#ticket-analysis-spark` | Lightweight checkpoint — run after PO write-up (ready for refinement?) and after refinement (ready for dev?). Same output, two stages |
 | Sprint Retro | `#sprint-analysis-retro` | Analyses all tickets in a sprint for quality patterns — what did we do well, consistently get wrong, occasionally miss |
-| Propose Corrections | `#ticket-propose-corrections` | Generates safe corrections from existing ticket content — propose only, never auto-apply |
+| Propose Corrections | `#ticket-analysis-propose-corrections` | Generates safe corrections from existing ticket content — propose only, never auto-apply |
 | Formatting | `#ticket-analysis-formatting` | Checks structural consistency — AC numbering, field placement, duplication, readability |
 
 ---
@@ -44,6 +44,21 @@ This is the orchestration guide for the ticket analysis skill suite.
 **First time on a new board**: Use Jira field search to identify relevant fields by keyword. Note which fields are populated and what they contain — this informs all subsequent analysis on that project.
 
 **"Why" field varies by type**: Stories typically use a User Story field. Tasks typically use a problem statement field. Both explain why the work matters but require different validation. If neither exists, check the description — not every board has dedicated fields.
+
+---
+
+## Finding the Parent Epic
+
+Epic links are stored inconsistently across boards. Use multiple approaches:
+
+1. Check the ticket's `parent` field in the API response
+2. Check for Epic Link custom fields (often `customfield_10006`, `customfield_10014`, or similar — identify by field name, not ID)
+3. Search JQL: `issuetype = Epic AND project = [PROJECT] AND summary ~ "[relevant keywords]"`
+4. Check the ticket's labels — they often hint at the initiative
+5. If still not found, search nearby key numbers (e.g. if ticket is SN-1751, check SN-1749, SN-1750 for Epics)
+6. If the ticket is a sub-task, find its parent Story/Task first, then find THAT ticket's Epic
+
+Individual skills that need epic context will reference this procedure rather than repeating it.
 
 ---
 
@@ -128,3 +143,13 @@ A missing documentation link on a backlog ticket is a note. The same gap on a ti
 ## Full Review
 
 For a comprehensive review of a single ticket, start with Type Correctness (it determines which other skills are relevant) then run whichever combination makes sense for the context. There's no required order beyond that.
+
+## Report Modes
+
+When running a deep dive, two output modes are available:
+
+**Full report** (default): Scores every dimension with explanation — what passes, what fails, and why. Use for onboarding, audits, and documentation.
+
+**Gaps only**: Outputs ONLY ⚠️ and ❌ findings. Skips anything that passes. No "what we did well" section. Use when you want action items without noise.
+
+The user requests gaps-only with phrases like "gaps only", "issues only", or "just the problems." If not specified, default to full report.

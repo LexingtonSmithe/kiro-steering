@@ -166,7 +166,6 @@ Examples: "3 of 8 tickets had no problem statement", "Adjacent features were fla
 - **Strengths first** — always lead with what's working
 - **No blame** — team patterns, not individual failures
 - **Actionable framing** — "Worth Discussing" items should be things the team can actually change
-- **One sprint = one retro output** — don't compare across sprints (yet)
 - **Comparison with previous retro**: If the user provides a previous retro output (Confluence page, pasted text, or page ID), compare the current sprint's patterns against the last one. Surface:
   - **Improved**: Issues flagged last time that are no longer present or have measurably improved
   - **Persisting**: Issues flagged last time that remain at the same level — the team hasn't addressed them

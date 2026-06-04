@@ -51,8 +51,6 @@ If documentation IS linked, assess:
 - **Docs exist but not linked**: You can see from the ticket context that relevant docs exist in Confluence but aren't linked from the ticket
 - **Wrong audience**: Documentation exists but serves the wrong audience for this ticket's context
 
-Do NOT flag the absence of customer-facing user flow documentation — this is a known organisational gap, not a per-ticket failure.
-
 ## Output
 
 When scoring, always explain WHY — don't just mark ✅/⚠️/❌. State what documentation exists, whether it's adequate for the ticket's needs, and what's missing or stale.

@@ -9,13 +9,7 @@ You are reviewing whether a Jira ticket is correctly typed and whether the work 
 ## What to do
 
 1. **Fetch the ticket** and note its current type
-2. **Find the parent Epic** — use multiple approaches since Epic links are stored inconsistently:
-   - Check the ticket's `parent` field in the API response
-   - Search for Epic Link custom fields (e.g. `customfield_10014` or similar)
-   - Search JQL: `issue in childIssuesOf("EPIC-KEY")` using the project prefix and nearby key numbers
-   - Search JQL: `issuetype = Epic AND project = [PROJECT] AND summary ~ "[relevant keywords]"` to find candidate Epics
-   - Check the ticket's labels — they often hint at the initiative
-   - If the ticket is a sub-task, find its parent Story/Task first, then find THAT ticket's Epic
+2. **Find the parent Epic** — follow the "Finding the Parent Epic" procedure in the index (`#ticket-analysis-suite-index`)
 3. **Fetch linked tickets** — child tickets, blockers, related issues, sibling stories under the same Epic
 4. **Assess the type** against these definitions
 5. **Assess the split** by reviewing the hierarchy

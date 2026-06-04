@@ -54,6 +54,8 @@ You are reviewing whether the ticket addresses non-functional quality attributes
 
 ### Observability
 
+(Note: This skill checks whether *observability is architecturally possible* — can the code be debugged, are there log points, is data structured for diagnosis. Release & Operations checks whether *operational tooling is configured* — dashboards linked, alerts set, smoke tests defined.)
+
 - Can we debug this in production? Are there logs, traces, or metrics that would help diagnose issues?
 - Different from monitoring (which tells you something's wrong) — observability helps you figure out WHY
 - Are log levels appropriate? (Not logging sensitive data, not too verbose, not too silent)

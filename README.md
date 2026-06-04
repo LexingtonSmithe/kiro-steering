@@ -1,33 +1,29 @@
 # Ticket Analysis Suite — Kiro Steering Skills
 
-A modular set of Jira ticket analysis skills for [Kiro](https://kiro.dev), designed to bring structured quality review to backlog items, sprint work, and epics — without requiring manual QA involvement at every stage.
+A modular set of Jira ticket analysis skills for [Kiro](https://kiro.dev), designed to bring structured quality review to backlog items, sprint work, and epics — without replacing the team's own thinking.
 
 ## What This Is
 
-A collection of 14 steering files that teach Kiro how to analyse Jira tickets across multiple quality dimensions. Each skill focuses on a specific aspect of ticket health and can be run independently or combined into a full-suite review.
+A collection of steering files that teach Kiro how to analyse Jira tickets across multiple quality dimensions. Skills are board-agnostic — they discover custom fields dynamically and adapt to whatever Jira configuration they encounter.
 
-The skills are board-agnostic — they discover custom fields dynamically and adapt to whatever Jira configuration they encounter.
+---
 
-## The Journey
+## Skills by Purpose
 
-This suite was built iteratively through real-world use:
+### Workflow Tools (use regularly, built into process)
 
-1. **Started with structured analysis** — individual skills for type correctness, content quality, INVEST readiness, and value measurement.
-2. **Calibrated through feedback** — early runs revealed false positives (scoring "gracefully handled" as ✅ when it's ambiguous). Each miss became a new calibration rule, like the weasel phrase detection list.
-3. **Removed noise** — assignment status was initially flagged as a risk. Learned that pre-dev tickets are intentionally unassigned in most workflows. Added a global rule to ignore it.
-4. **Tightened the false positive test** — the core question became: "Could someone unfamiliar with this ticket act on it without asking a single clarifying question?" If the answer is no, it's not a pass.
-5. **Genericised for publication** — removed all company-specific references (internal tool names, team names, org-specific suppressions) without impacting analysis quality.
-6. **Added implied rules and adjacent feature detection** — the skill now probes for what's unwritten (state preconditions, boundary rejection, concurrent actors) and checks for companion features that logically must exist (inverse operations, lifecycle companions, recovery flows).
-7. **Added specification vs expectation** — checks whether the AC deliver what the user story promises. A broad user story paired with narrow AC gets flagged as an expectation gap.
-8. **Shifted from analysis to conversation** — the full suite is thorough but heavy. Teams found it more useful as reference material than as a live workflow tool. Phase 8 introduced the Spark: a ~30-line output designed to galvanise discussion rather than do the team's thinking for them. The Spark runs at two checkpoints (post-PO write-up and post-refinement) and surfaces only decisions and gaps — no scoring, no explanations, no suggested rewrites. The team reasons independently; the tool catches what they might have missed. This preserves the team's ownership of their process while providing a systematic safety net.
+| Skill | File | When to use |
+|-------|------|-------------|
+| **Spark** | `ticket-analysis-spark.md` | After PO write-up or after refinement. ~30 lines — surfaces questions and gaps to discuss. No scoring, no explanations |
+| **Sprint Retro** | `sprint-analysis-retro.md` | End of sprint. Patterns across all tickets — what improved, persisted, regressed. Compares against previous sprint if provided |
 
-## Skills
+### Deep Dive (use on-demand, when something needs investigation)
 
-| Skill | File | Purpose |
-|-------|------|---------|
-| Index | `ticket-analysis-index.md` | Orchestration guide, scoring philosophy, global rules |
-| Type Correctness | `ticket-analysis-type-correctness.md` | Validates issue type and hierarchy/split |
-| Content Quality | `ticket-analysis-content-quality.md` | Description, AC, and user story clarity |
+| Skill | File | When to use |
+|-------|------|-------------|
+| **Full Suite** | `ticket-analysis-suite-index.md` | Epic reviews, pre-release audits, new initiative scoping. Runs all relevant skills |
+| Content Quality | `ticket-analysis-content-quality.md` | Specific concern about AC clarity, implied rules, adjacent features, or spec vs expectation |
+| Type Correctness | `ticket-analysis-type-correctness.md` | Validate issue type and hierarchy/split |
 | INVEST | `ticket-analysis-invest.md` | Sprint readiness check |
 | Value & Measurement | `ticket-analysis-value-measurement.md` | Epic hypothesis, ticket contribution, success criteria |
 | Implementation & Test | `ticket-analysis-implementation-test.md` | Dev/test approach alignment with AC |
@@ -36,10 +32,28 @@ This suite was built iteratively through real-world use:
 | Documentation | `ticket-analysis-documentation.md` | Doc links and quality of referenced docs |
 | Bugs | `ticket-analysis-bugs.md` | Dedicated bug assessment framework |
 | Spikes | `ticket-analysis-spikes.md` | Time-box, output, scope, success criteria |
-| Spark | `ticket-analysis-spark.md` | Lightweight checkpoint — run post-write-up and post-refinement to galvanise discussion |
-| Sprint Retro | `sprint-analysis-retro.md` | Sprint-level quality patterns with sprint-over-sprint comparison |
-| Propose Corrections | `ticket-propose-corrections.md` | Safe corrections from existing content (propose only) |
-| Formatting | `ticket-analysis-formatting.md` | Structural consistency and field placement |
+
+### Housekeeping (use for cleanup and admin)
+
+| Skill | File | When to use |
+|-------|------|-------------|
+| **Propose Corrections** | `ticket-analysis-propose-corrections.md` | After analysis identifies issues. Generates safe corrections from existing content — never auto-applies |
+| **Formatting** | `ticket-analysis-formatting.md` | Structural consistency — AC numbering, field placement, duplication |
+
+---
+
+## Report Modes (Deep Dive)
+
+When running a deep dive (full suite or individual skill), specify which report mode you want:
+
+| Mode | What you get | When to use |
+|------|-------------|-------------|
+| **Full report** | Everything — what's good, what's bad, and why. Scores each dimension with explanation | When you need the complete picture (onboarding, audits, documentation) |
+| **Gaps only** | Just the issues — no commentary on what passes. Only ⚠️ and ❌ findings | When you want action items without noise (quick reviews, busy sprints) |
+
+If not specified, the default is **full report**. Request gaps-only with: "analyse [ticket] — gaps only" or "full suite, gaps only."
+
+---
 
 ## How to Use
 
@@ -48,34 +62,39 @@ This suite was built iteratively through real-world use:
 1. Copy the `.kiro/steering/` directory into your workspace
 2. All skills use `inclusion: manual` — activate them via `#skill-name` in Kiro chat
 
-### Single Ticket Review
-
-Activate the index and one or more skills:
+### Everyday (Spark)
 
 ```
-#ticket-analysis-index
-#ticket-analysis-content-quality
+#ticket-analysis-spark
 
-Analyse SN-1234
+Spark SG-1234
 ```
 
-### Full Suite Review
+### Deep Dive (Full)
 
 ```
-#ticket-analysis-index
+#ticket-analysis-suite-index
 
 Full suite analysis on PROJ-567
 ```
 
-The index guides skill selection based on ticket type (bugs route to the bug skill, spikes to the spike skill, etc.).
-
-### Epic + Children
+### Deep Dive (Gaps Only)
 
 ```
-#ticket-analysis-index
+#ticket-analysis-suite-index
 
-Analyse PROJ-100 and all child tickets
+Analyse PROJ-567 — gaps only
 ```
+
+### Sprint Retro
+
+```
+#sprint-analysis-retro
+
+Run retro against Sprint [name] for [board]
+```
+
+---
 
 ## Requirements
 
@@ -83,22 +102,60 @@ Analyse PROJ-100 and all child tickets
 - **Jira access** to the boards you want to analyse
 - Optionally, **Confluence** access if you want results posted to wiki pages
 
+### MCP Configuration
+
+Add the Atlassian MCP server to your `.kiro/settings/mcp.json` (workspace) or `~/.kiro/settings/mcp.json` (user-level):
+
+```json
+{
+  "mcpServers": {
+    "atlassian": {
+      "command": "uvx",
+      "args": ["atlassian-mcp-server"],
+      "env": {
+        "CONFLUENCE_URL": "https://your-domain.atlassian.net/wiki",
+        "CONFLUENCE_USERNAME": "YOUR_EMAIL",
+        "CONFLUENCE_API_TOKEN": "YOUR_API_KEY",
+        "JIRA_URL": "https://your-domain.atlassian.net",
+        "JIRA_USERNAME": "YOUR_EMAIL",
+        "JIRA_API_TOKEN": "YOUR_API_KEY"
+      },
+      "disabled": false,
+      "autoApprove": []
+    }
+  }
+}
+```
+
+Generate an API token at [https://id.atlassian.com/manage-profile/security/api-tokens](https://id.atlassian.com/manage-profile/security/api-tokens).
+
+---
+
 ## Design Principles
 
-- **Quality over presence** — the question is never "is this field populated?" but "is this good enough to act on without questions?"
+- **Quality over presence** — never "is this field populated?" always "is this good enough to act on?"
 - **Board-agnostic** — discovers fields dynamically rather than hardcoding IDs
-- **Lifecycle-aware** — the same gap is informational in backlog, concerning in sprint, critical at release
-- **No auto-writes** — the Propose Corrections skill generates proposals but never writes to Jira without human approval
-- **Calibrated scoring** — weasel phrases, ambiguous AC, and false positives are caught by explicit rules
+- **Lifecycle-aware** — same gap is informational in backlog, concerning in sprint, critical at release
+- **Questions over findings** — questions force decisions, findings allow deferral
+- **Trust the team** — surface what might be missed, don't dictate answers
+- **No auto-writes** — proposals only, human decides
+
+---
 
 ## Customisation
 
-The skills are designed to be extended. Common customisations:
-
 - **Add role-specific actors** to the content quality skill's user story validation
-- **Add known documentation gaps** to suppress in the documentation skill (things your org knows are missing and doesn't want flagged per-ticket)
+- **Add known documentation gaps** to suppress in the documentation skill
 - **Adjust severity framing** if your workflow statuses differ from the defaults
 - **Add weasel phrases** to the index as you discover them in your team's tickets
+
+---
+
+## History
+
+See [LESSONS.md](./LESSONS.md) for the iterative journey from first draft to current state — each phase represents a calibration or design decision made through real-world use.
+
+---
 
 ## License
 

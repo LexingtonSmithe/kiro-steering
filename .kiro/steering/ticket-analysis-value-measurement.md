@@ -9,12 +9,7 @@ You are reviewing whether the work has a clear value hypothesis and whether each
 ## What to do
 
 1. **Fetch the ticket** and identify its parent Epic (if any)
-2. **Find the parent Epic** — use multiple approaches since Epic links are stored inconsistently:
-   - Check the ticket's `parent` field in the API response
-   - Search for Epic Link custom fields (e.g. `customfield_10014` or similar)
-   - Search JQL: `issuetype = Epic AND project = [PROJECT] AND summary ~ "[relevant keywords]"` to find candidate Epics
-   - Check the ticket's labels — they often hint at the initiative
-   - If still not found, search nearby key numbers (e.g. if ticket is SN-1751, check SN-1749, SN-1750 for Epics)
+2. **Find the parent Epic** — follow the "Finding the Parent Epic" procedure in the index (`#ticket-analysis-suite-index`)
 3. **Fetch the parent Epic** and any sibling tickets under it
 4. **If the ticket has sub-tasks**, fetch those too — check they all contribute
 5. **Assess the value chain** — from Epic hypothesis down to individual ticket contribution
