@@ -2,6 +2,8 @@
 
 A modular set of Jira ticket analysis skills for [Kiro](https://kiro.dev), designed to bring structured quality review to backlog items, sprint work, and epics — without replacing the team's own thinking.
 
+These skills are agent-agnostic markdown prompts — they work in any AI tool that can read instructions and call the Jira API (Claude Desktop, Cursor, Windsurf, etc.).
+
 ## What This Is
 
 A collection of steering files that teach Kiro how to analyse Jira tickets across multiple quality dimensions. Skills are board-agnostic — they discover custom fields dynamically and adapt to whatever Jira configuration they encounter.
