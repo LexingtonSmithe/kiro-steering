@@ -32,9 +32,18 @@ The team has refined, estimated, and agreed on the work. Run the spark as a Defi
 
 ---
 
+## Data Retrieval (do not skip)
+
+- Always fetch with `fields=*all` and `comment_limit=0`
+- ACs, test plans, and "why" fields live in custom fields — they will NOT appear in default field fetches
+- If the response looks thin (only summary/description/status), re-fetch before proceeding
+- Never claim "no AC" without explicitly stating what the AC field contains
+
+---
+
 ## What to Do
 
-1. Fetch the ticket with all fields
+1. Fetch the ticket with all fields (see Data Retrieval above)
 2. If sub-task, fetch the parent
 3. Find the parent Epic for context
 4. Identify the 3-5 most important gaps or decisions needed

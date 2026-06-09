@@ -1,5 +1,5 @@
 ---
-inclusion: manual
+inclusion: auto
 ---
 
 # Ticket Analysis Suite — Index
@@ -29,7 +29,9 @@ This is the orchestration guide for the ticket analysis skill suite. Activate wi
 
 ## Data Retrieval
 
-**Fetch all fields**: Always fetch tickets with `*all` fields. Never assume content only lives in the description — check ALL populated fields.
+> **Note**: Each skill file contains a self-contained "Data Retrieval" block covering fetch parameters. This section provides additional field discovery guidance for first-time boards and complex projects.
+
+**Fetch all fields**: Always fetch tickets with `*all` fields and `comment_limit=0`. Never assume content only lives in the description — check ALL populated fields.
 
 **Field discovery, not hardcoding**: Do not assume specific custom field IDs. Different projects use different field configurations. Identify fields by their purpose:
 

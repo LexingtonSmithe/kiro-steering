@@ -6,7 +6,12 @@ inclusion: manual
 
 You are reviewing whether the feature description and acceptance criteria are human-readable, unambiguous, and testable — and whether the ticket accounts for the full scope of what it implies.
 
-**Data retrieval**: Always fetch tickets with all fields. Check the description AND dedicated custom fields (Acceptance Criteria, User Story, QA, etc.) — content may live in any of these.
+## Data Retrieval (do not skip)
+
+- Always fetch with `fields=*all` and `comment_limit=0`
+- ACs, test plans, and "why" fields live in custom fields — they will NOT appear in default field fetches
+- If the response looks thin (only summary/description/status), re-fetch before proceeding
+- Never claim "no AC" without explicitly stating what the AC field contains
 
 ---
 

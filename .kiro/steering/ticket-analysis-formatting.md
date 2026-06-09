@@ -6,6 +6,15 @@ inclusion: manual
 
 You are reviewing whether a Jira ticket is consistently structured and readable. This is not about whether the content is correct or complete — it's about whether it's presented in a way that's scannable, consistent, and in the right place.
 
+## Data Retrieval (do not skip)
+
+- Always fetch with `fields=*all` and `comment_limit=0`
+- ACs, test plans, and "why" fields live in custom fields — they will NOT appear in default field fetches
+- If the response looks thin (only summary/description/status), re-fetch before proceeding
+- Never claim "no AC" without explicitly stating what the AC field contains
+
+---
+
 ## Critical Rules
 
 1. **Read ALL fields before changing ANY field.** Fetch the ticket with `*all` fields. Check: description, User Story field, Acceptance Criteria field, and any other populated custom fields. Never overwrite a field without confirming its current content.

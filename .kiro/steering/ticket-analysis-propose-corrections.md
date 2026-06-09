@@ -10,6 +10,15 @@ You are generating proposed corrections for a Jira ticket based on information t
 
 ---
 
+## Data Retrieval (do not skip)
+
+- Always fetch with `fields=*all` and `comment_limit=0`
+- ACs, test plans, and "why" fields live in custom fields — they will NOT appear in default field fetches
+- If the response looks thin (only summary/description/status), re-fetch before proceeding
+- Never claim "no AC" without explicitly stating what the AC field contains
+
+---
+
 ## Prerequisite: Prior analysis required
 
 This skill depends on findings from the analysis skills. Before proposing corrections, check whether the ticket has been analysed in this conversation using at least Content Quality and Type Correctness.

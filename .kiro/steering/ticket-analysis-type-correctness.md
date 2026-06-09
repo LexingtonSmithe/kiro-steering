@@ -6,9 +6,18 @@ inclusion: manual
 
 You are reviewing whether a Jira ticket is correctly typed and whether the work is split appropriately across its linked tickets and hierarchy.
 
+## Data Retrieval (do not skip)
+
+- Always fetch with `fields=*all` and `comment_limit=0`
+- ACs, test plans, and "why" fields live in custom fields — they will NOT appear in default field fetches
+- If the response looks thin (only summary/description/status), re-fetch before proceeding
+- Never claim "no AC" without explicitly stating what the AC field contains
+
+---
+
 ## What to do
 
-1. **Fetch the ticket** and note its current type
+1. **Fetch the ticket** with `fields=*all` and `comment_limit=0` — note its current type
 2. **Find the parent Epic** — follow the "Finding the Parent Epic" procedure in the index (`#ticket-analysis-suite-index`)
 3. **Fetch linked tickets** — child tickets, blockers, related issues, sibling stories under the same Epic
 4. **Assess the type** against these definitions

@@ -8,6 +8,15 @@ You are reviewing whether the proposed development approach and test plan (provi
 
 **Important**: This skill reviews proposals and plans, not completed work. It assesses whether the intended approach will deliver the right thing, before work begins or during refinement.
 
+## Data Retrieval (do not skip)
+
+- Always fetch with `fields=*all` and `comment_limit=0`
+- ACs, test plans, and "why" fields live in custom fields — they will NOT appear in default field fetches
+- If the response looks thin (only summary/description/status), re-fetch before proceeding
+- Never claim "no AC" without explicitly stating what the AC field contains
+
+---
+
 ## What to check
 
 ### Development Proposal

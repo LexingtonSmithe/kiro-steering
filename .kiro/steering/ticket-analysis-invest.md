@@ -6,6 +6,15 @@ inclusion: manual
 
 You are performing a post-refinement check to validate that a ticket meets INVEST criteria before it enters a sprint. This skill should NOT be used for work already in sprint — negotiations and estimates should already be provided by that point.
 
+## Data Retrieval (do not skip)
+
+- Always fetch with `fields=*all` and `comment_limit=0`
+- ACs, test plans, and "why" fields live in custom fields — they will NOT appear in default field fetches
+- If the response looks thin (only summary/description/status), re-fetch before proceeding
+- Never claim "no AC" without explicitly stating what the AC field contains
+
+---
+
 ## When to use
 
 - After refinement, before sprint planning

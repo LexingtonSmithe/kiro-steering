@@ -10,11 +10,20 @@ This is NOT per-ticket feedback. It's pattern recognition across the sprint.
 
 ---
 
+## Data Retrieval (do not skip)
+
+- Always fetch with `fields=*all` and `comment_limit=0`
+- ACs, test plans, and "why" fields live in custom fields — they will NOT appear in default field fetches
+- If the response looks thin (only summary/description/status), re-fetch before proceeding
+- Never claim "no AC" without explicitly stating what the AC field contains
+
+---
+
 ## What to Do
 
 1. **Identify the sprint** — ask for the board and sprint name, or accept a sprint ID
 2. **Fetch all tickets in the sprint** — use sprint issues endpoint or JQL (`sprint = "Sprint Name"`)
-3. **Fetch each ticket with all fields** — apply the same field discovery as the index (AC, User Story, Problem Statement, Implementation Notes, Test Notes)
+3. **Fetch each ticket with `fields=*all` and `comment_limit=0`** — apply the same field discovery as the index (AC, User Story, Problem Statement, Implementation Notes, Test Notes)
 4. **Run a lightweight analysis per ticket** — not a full suite, but enough to score each dimension:
    - AC present and testable?
    - Why field present and clear?

@@ -6,6 +6,15 @@ inclusion: manual
 
 You are reviewing whether a Spike ticket is well-formed and ready to be worked on. Spikes have unique quality criteria that differ from Stories and Tasks — they are time-boxed investigations with defined outputs, not open-ended research.
 
+## Data Retrieval (do not skip)
+
+- Always fetch with `fields=*all` and `comment_limit=0`
+- ACs, test plans, and "why" fields live in custom fields — they will NOT appear in default field fetches
+- If the response looks thin (only summary/description/status), re-fetch before proceeding
+- Never claim "no AC" without explicitly stating what the AC field contains
+
+---
+
 ## What to check
 
 ### 1. Time-box

@@ -6,9 +6,18 @@ inclusion: manual
 
 You are reviewing whether the work has a clear value hypothesis and whether each ticket contributes to a measurable goal. This requires fetching and reviewing linked tickets to understand the full picture.
 
+## Data Retrieval (do not skip)
+
+- Always fetch with `fields=*all` and `comment_limit=0`
+- ACs, test plans, and "why" fields live in custom fields — they will NOT appear in default field fetches
+- If the response looks thin (only summary/description/status), re-fetch before proceeding
+- Never claim "no AC" without explicitly stating what the AC field contains
+
+---
+
 ## What to do
 
-1. **Fetch the ticket** and identify its parent Epic (if any)
+1. **Fetch the ticket** with `fields=*all` and `comment_limit=0` — identify its parent Epic (if any)
 2. **Find the parent Epic** — follow the "Finding the Parent Epic" procedure in the index (`#ticket-analysis-suite-index`)
 3. **Fetch the parent Epic** and any sibling tickets under it
 4. **If the ticket has sub-tasks**, fetch those too — check they all contribute
