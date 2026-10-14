@@ -24,6 +24,7 @@ This is the orchestration guide for the ticket analysis skill suite. Activate wi
 | Sprint Retro | `#sprint-analysis-retro` | Analyses all tickets in a sprint for quality patterns — what did we do well, consistently get wrong, occasionally miss |
 | Propose Corrections | `#ticket-analysis-propose-corrections` | Generates safe corrections from existing ticket content — propose only, never auto-apply |
 | Formatting | `#ticket-analysis-formatting` | Checks structural consistency — AC numbering, field placement, duplication, readability |
+| Test Plan Generation | `#ticket-analysis-test-plan` | Generates a test plan from ticket content — Quick mode (refinement) or Full mode (sprint-ready) |
 
 ---
 
